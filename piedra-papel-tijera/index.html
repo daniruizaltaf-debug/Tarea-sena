@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Piedra, Papel o Tijera</title>
+  <link rel="stylesheet" href="style.css">
+<style>
+.home-btn{
+  position:fixed;top:16px;left:16px;z-index:9999;
+  display:inline-block;padding:9px 14px;border-radius:10px;
+  background:rgba(15,23,42,.92);color:#67e8f9;text-decoration:none;
+  border:1px solid #475569;font-weight:800;box-shadow:0 6px 18px #0006;
+}
+.home-btn:hover{background:#1e293b;transform:translateY(-1px)}
+</style>
+</head>
+<body>
+<a href="../principal.html" class="home-btn">🏠 Inicio</a>
+  <h1>Piedra, Papel o Tijera</h1>
+  <div class="marcador">
+    <p>Jugador: <span id="puntos-jugador">0</span></p>
+    <p>Computadora: <span id="puntos-computadora">0</span></p>
+  </div>
+  <div class="opciones">
+    <button class="boton-opcion" id="piedra">🪨 Piedra</button>
+    <button class="boton-opcion" id="papel">📄 Papel</button>
+    <button class="boton-opcion" id="tijera">✂ Tijera</button>
+  </div>
+  <div class="resultado">
+    <p id="mensaje">¡Elige una opción para empezar!</p>
+    <p id="elecciones"></p>
+  </div>
+  <script src="script.js"></script><script src="audio.js"></script>
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tres en Raya - Naruto</title>
+    <link rel="stylesheet" href="estilo.css">
+<style>
+.home-btn{
+  position:fixed;top:16px;left:16px;z-index:9999;
+  display:inline-block;padding:9px 14px;border-radius:10px;
+  background:rgba(15,23,42,.92);color:#67e8f9;text-decoration:none;
+  border:1px solid #475569;font-weight:800;box-shadow:0 6px 18px #0006;
+}
+.home-btn:hover{background:#1e293b;transform:translateY(-1px)}
+</style>
+</head>
+<body>
+<a href="../principal.html" class="home-btn">🏠 Inicio</a>
+
+<div class="game">
+    <h1>🍥 Tres en Raya 🍥</h1>
+
+    <div class="scoreboard">
+        <div class="score-box">
+            <div class="lbl">Jugador X</div>
+            <div class="val" id="sx">0</div>
+        </div>
+
+        <div class="score-box">
+            <div class="lbl">Empates</div>
+            <div class="val" id="se">0</div>
+        </div>
+
+        <div class="score-box">
+            <div class="lbl">Jugador O</div>
+            <div class="val" id="so">0</div>
+        </div>
+    </div>
+
+    <p id="status">Turno de X</p>
+
+    <div id="board">
+        <div class="cell" data-index="0"></div>
+        <div class="cell" data-index="1"></div>
+        <div class="cell" data-index="2"></div>
+        <div class="cell" data-index="3"></div>
+        <div class="cell" data-index="4"></div>
+        <div class="cell" data-index="5"></div>
+        <div class="cell" data-index="6"></div>
+        <div class="cell" data-index="7"></div>
+        <div class="cell" data-index="8"></div>
+    </div>
+
+    <button id="restart">🍥 Nueva Partida</button>
+</div>
+
+<script src="java.js"></script><script src="audio.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Trivia GameZone</title>
+<link rel="stylesheet" href="estilotrivia.css">
+</head>
+<body>
+<a class="home-btn" href="../principal.html">🏠 Inicio</a>
+<main class="trivia">
+<section class="panel" id="selection">
+    <div class="logo">🎮</div><div class="eyebrow">SENA • ZONA GAMER</div>
+<h1>Trivia</h1><p class="subtitle">Elige un tema para comenzar</p>
+<div class="categories">
+<button class="category" data-topic="anime"><div class="emoji">🎌</div><h2>Anime</h2><p>Series, personajes y mundos.</p></button>
+<button class="category" data-topic="tech"><div class="emoji">💻</div><h2>Tecnología</h2><p>Computadores, internet y tecnología.</p></button>
+<button class="category" data-topic="movies"><div class="emoji">🎬</div><h2>Películas</h2><p>Cine, personajes y películas.</p></button>
+</div>
+<button class="start" id="startBtn" disabled>▶ Comenzar trivia</button>
+</section>
+
+<section class="panel hidden" id="quiz">
+    <button class="back-topic" id="backTopic">
+    ↩️ Regresar
+</button>
+    <div class="top"><span id="topicName">Tema</span><span>⏱️ <b id="timer">15</b>s</span></div>
+<div class="progress"><div class="bar" id="bar"></div></div>
+<div id="counter"></div><div class="question" id="question"></div>
+<div class="answers" id="answers"></div><button class="next hidden" id="next">Siguiente →</button>
+</section>
+
+<section class="panel result hidden" id="result">
+<div class="logo">🏆</div><div class="eyebrow">RESULTADO</div>
+<h1>¡Trivia terminada!</h1><p id="resultTopic"></p><div class="score" id="score"></div>
+<p id="resultText"></p><button class="start" id="again">🔄 Jugar otra vez</button>
+</section>
+</main>
+<script src="audio.js"></script>
+<script>
+const questions={
+anime:[
+["¿Cómo se llama el protagonista de Naruto?","Naruto Uzumaki","Sasuke Uchiha","Kakashi Hatake","Itachi Uchiha",0],
+["¿Qué poder utiliza principalmente Goku?","Nen","Ki","Chakra","Magia",1],
+["¿Cómo se llama el capitán de los Sombrero de Paja?","Zoro","Sanji","Monkey D. Luffy","Ace",2],
+["¿En qué anime aparece Pikachu?","Digimon","Pokémon","Yu-Gi-Oh!","Beyblade",1],
+["¿Cómo se llama el cuaderno de Death Note?","Black Book","Death Note","Soul Book","Dark Note",1],
+["¿Qué personaje pertenece a Demon Slayer?","Tanjiro Kamado","Eren Yeager","Light Yagami","Saitama",0],
+["¿Quién es el hermano de Sasuke?","Shikamaru","Neji","Itachi","Gaara",2],
+["¿Cómo se llama el protagonista de One Punch Man?","Saitama","Genos","Levi","Gon",0],
+["¿Qué anime tiene a los titanes como enemigos?","Bleach","Attack on Titan","One Piece","Haikyuu!!",1],
+["¿Cuál es el apellido de Ichigo?","Kurosaki","Kurosawa","Kuchiki","Urahara",0],
+["¿Quién es el protagonista de My Hero Academia?","Bakugo","Todoroki","Izuku Midoriya","All Might",2],
+["¿Qué criatura es Totoro?","Un espíritu del bosque","Un ninja","Un robot","Un dragón",0]
+],
+tech:[
+["¿Qué significa CPU?","Central Processing Unit","Computer Personal Unit","Control Program Utility","Central Power User",0],
+["¿Cuál de estos es un sistema operativo?","HTML","Windows","USB","Wi-Fi",1],
+["¿Qué componente almacena datos de forma permanente?","RAM","CPU","SSD","GPU",2],
+["¿Qué significa HTML?","HyperText Markup Language","High Tech Machine Language","Home Tool Markup Link","Hyper Transfer Main Language",0],
+["¿Cuál se usa principalmente para navegar por internet?","Navegador web","Compilador","Antivirus","Editor de audio",0],
+["¿Qué dispositivo se utiliza para mover el cursor?","Monitor","Teclado","Mouse","Router",2],
+["¿Qué significa RAM?","Random Access Memory","Rapid Application Module","Read Access Machine","Random Audio Memory",0],
+["¿Cuál es un lenguaje de programación?","Python","JPEG","Wi-Fi","HDMI",0],
+["¿Qué componente procesa los gráficos?","GPU","RAM","SSD","Fuente de poder",0],
+["¿Qué tecnología permite conectar dispositivos sin cables a una red?","Wi-Fi","VGA","SATA","HDMI",0],
+["¿Para qué sirve principalmente un antivirus?","Editar videos","Detectar software malicioso","Aumentar la RAM","Crear páginas web",1],
+["¿Qué empresa creó Windows?","Apple","Microsoft","Google","Sony",1]
+],
+movies:[
+["¿Qué película presenta al personaje Jack Sparrow?","Titanic","Piratas del Caribe","Avatar","Matrix",1],
+["¿Cómo se llama el héroe de Black Panther?","Peter Parker","T'Challa","Clark Kent","Bruce Wayne",1],
+["¿En qué película aparece Woody?","Toy Story","Cars","Shrek","Frozen",0],
+["¿Qué película tiene al personaje Harry Potter?","El Hobbit","Harry Potter y la piedra filosofal","Avatar","Jurassic Park",1],
+["¿Quién es el villano principal de Avengers: Infinity War?","Loki","Ultron","Thanos","Hela",2],
+["¿Qué película trata sobre un parque con dinosaurios?","Jumanji","Jurassic Park","Gravity","Interstellar",1],
+["¿Cómo se llama el ogro protagonista de Shrek?","Fiona","Burro","Shrek","Gato",2],
+["¿Qué película animada tiene a Elsa y Anna?","Moana","Frozen","Encanto","Coco",1],
+["¿En qué saga aparece Darth Vader?","Star Wars","Harry Potter","Transformers","Matrix",0],
+["¿Qué película presenta a un robot llamado WALL-E?","WALL-E","Up","Ratatouille","Cars",0],
+["¿Qué superhéroe utiliza un escudo con una estrella?","Iron Man","Hulk","Capitán América","Thor",2],
+["¿Qué película de Pixar trata sobre emociones como Alegría y Tristeza?","Coco","Intensamente","Soul","Up",1]
+]};
+
+let topic=null,current=[],index=0,score=0,timer=15,interval=null;
+const $=id=>document.getElementById(id);
+document.querySelectorAll(".category").forEach(btn=>btn.onclick=()=>{
+document.querySelectorAll(".category").forEach(x=>x.classList.remove("selected"));
+btn.classList.add("selected");topic=btn.dataset.topic;$("startBtn").disabled=false;GameAudio.click();
+});
+function shuffle(a){return [...a].sort(()=>Math.random()-.5)}
+$("startBtn").onclick=()=>{
+current=shuffle(questions[topic]).slice(0,10);index=0;score=0;
+$("selection").classList.add("hidden");$("result").classList.add("hidden");$("quiz").classList.remove("hidden");
+$("topicName").textContent={anime:"🎌 Anime",tech:"💻 Tecnología",movies:"🎬 Películas"}[topic];showQuestion();
+};
+function showQuestion(){
+clearInterval(interval);timer=15;$("timer").textContent=timer;
+const q=current[index];$("counter").textContent=`Pregunta ${index+1} de ${current.length}`;
+$("question").textContent=q[0];$("bar").style.width=((index/current.length)*100)+"%";
+$("next").classList.add("hidden");$("answers").innerHTML="";
+q.slice(1,5).forEach((text,i)=>{const b=document.createElement("button");b.className="answer";b.textContent=text;b.onclick=()=>answer(b,i);$("answers").appendChild(b)});
+interval=setInterval(()=>{timer--;$("timer").textContent=timer;if(timer<=0){clearInterval(interval);answer(null,-1)}},1000);
+}
+function answer(button,chosen){
+clearInterval(interval);const q=current[index],buttons=[...document.querySelectorAll(".answer")];
+buttons.forEach((b,i)=>{b.disabled=true;if(i===q[5])b.classList.add("correct")});
+if(chosen===q[5]){score++;if(button)button.classList.add("correct");GameAudio.success()}else{if(button)button.classList.add("wrong");GameAudio.error()}
+$("next").classList.remove("hidden");
+}
+$("next").onclick=()=>{index++;if(index>=current.length)finish();else showQuestion()};
+function finish(){
+clearInterval(interval);$("quiz").classList.add("hidden");$("result").classList.remove("hidden");
+const names={anime:"Anime",tech:"Tecnología",movies:"Películas"};$("resultTopic").textContent=`Tema: ${names[topic]}`;
+$("score").textContent=`${score} / ${current.length}`;
+$("resultText").textContent=score>=8?"🔥 ¡Excelente!":score>=5?"👍 ¡Buen trabajo!":"💪 ¡Sigue practicando!";
+GameAudio.win();
+}
+$("again").onclick=()=>{$("result").classList.add("hidden");$("selection").classList.remove("hidden");topic=null;$("startBtn").disabled=true;document.querySelectorAll(".category").forEach(x=>x.classList.remove("selected"))};
+</script>
+</body></html>

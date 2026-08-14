@@ -3,49 +3,76 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Página Principal - Programación de Software</title>
+<title>SENA • ZONA GAMER | Inicio</title>
 <link rel="stylesheet" href="estilo.css">
 </head>
 <body>
-<!-- Menú Superior -->
-<header>
-<h1>Panel Principal</h1>
-<nav>
-<ul class="nav-menu">
-<li><a href="principal.html">Inicio</a></li>
-<li><a href="#contacto">Contacto</a></li>
-<li><a href="index.html" style="color: #ffcc00;">Cerrar Sesión</a></li>
-</ul>
-</nav>
+<header class="topbar">
+  <a class="brand" href="principal.html">🎮 <span>SENA • ZONA GAMER</span> <small>SENA</small></a>
+
+  <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú">☰</button>
+
+  <nav class="main-nav" id="mainNav">
+    <a class="active" href="principal.html">🏠 Inicio</a>
+    <a href="#juegos">🎮 Juegos</a>
+    <a href="acerca.html">👥 Acerca de nosotros</a>
+    <a class="logout" href="index.html">🚪 Salir</a>
+  </nav>
 </header>
-<!-- Contenido con la Grilla de 4 tarjetas -->
-<div class="main-content">
-<h2>Módulos del Sistema</h2>
-<div class="grid-tarjetas">
-<div class="tarjeta" onclick="cargarDetalle('HTML y CSS')">
-<h3>HTML y CSS</h3>
-<p>Estructura y diseño de interfaces web modernas.</p>
-</div>
-<div class="tarjeta" onclick="cargarDetalle('JavaScript')">
-<h3>JavaScript</h3>
-<p>Interactividad y lógica del lado del cliente.</p>
-</div>
-<div class="tarjeta" onclick="cargarDetalle('Bases de Datos')">
-<h3>Bases de Datos</h3>
-<p>Gestión de información y persistencia de datos.</p>
-</div>
-<div class="tarjeta" onclick="cargarDetalle('Metodologías Ágiles')">
-<h3>Scrum / Ágiles</h3>
-<p>Gestión de proyectos y trabajo en equipo.</p>
-</div>
-</div>
-</div>
-<!-- Pie de página con datos institucionales -->
+
+<main>
+  <section class="hero">
+    <div class="hero-glow"></div>
+    <div class="eyebrow">SENA • ZONA GAMER</div>
+    <h1>Bienvenido a <span>SENA • ZONA GAMER</span></h1>
+    <p>Un espacio para jugar, competir y pasarla bien.</p>
+    <a class="hero-button" href="#juegos">🎮 Ver juegos</a>
+  </section>
+
+  <section class="games-section" id="juegos">
+    <div class="section-title">
+      <span>⚡</span>
+      <div>
+        <h2>Selecciona un juego</h2>
+        <p>Elige uno y comienza a jugar.</p>
+      </div>
+    </div>
+
+    <div class="grid-tarjetas">
+      <a class="tarjeta" href="trivia/index.html">
+        <div class="icono">🎌</div><h3>Trivia</h3>
+        <p>Pon a prueba tus conocimientos de anime y supera tu récord.</p><span>JUGAR →</span>
+      </a>
+      <a class="tarjeta" href="piedra-papel-tijera/index.html">
+        <div class="icono">🪨📄✂️</div><h3>Piedra, Papel o Tijera</h3>
+        <p>Enfréntate a la computadora y consigue la mayor puntuación.</p><span>JUGAR →</span>
+      </a>
+      <a class="tarjeta" href="tres-en-raya/index.html">
+        <div class="icono">🍥</div><h3>Tres en Raya</h3>
+        <p>Coloca tus fichas y consigue tres en línea antes que tu rival.</p><span>JUGAR →</span>
+      </a>
+      <a class="tarjeta" href="ahorcado/index.html">
+        <div class="icono">⚡</div><h3>El Ahorcado</h3>
+        <p>Adivina las palabras antes de quedarte sin vidas.</p><span>JUGAR →</span>
+      </a>
+      <a class="tarjeta" href="memoria/index.html">
+        <div class="icono">🧠</div><h3>Juego de Memoria</h3>
+        <p>Encuentra todas las parejas con la menor cantidad de movimientos.</p><span>JUGAR →</span>
+      </a>
+    </div>
+  </section>
+</main>
+
 <footer>
-<p><strong>Programa:</strong> Análisis y Desarrollo / Programación de Software</p>
-<p><strong>Aprendiz:</strong> Jaider Altafulla, Ana cabrera, Alejandra Hernandez, Julmer Gomez</p>
-<p><strong>Institución:</strong> SENA - Articulación con la Media</p>
+  <strong>🎮 SENA • ZONA GAMER</strong>
+  <p>Programación de Software • Un proyecto hecho para aprender y divertirse.</p>
 </footer>
-<script src="script.js"></script>
+
+<script>
+const toggle=document.getElementById('menuToggle');
+const nav=document.getElementById('mainNav');
+toggle.addEventListener('click',()=>nav.classList.toggle('show'));
+document.querySelectorAll('.main-nav a').forEach(a=>a.addEventListener('click',()=>nav.classList.remove('show')));
+</script>
 </body>
 </html>

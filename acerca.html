@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title> SENA • ZONA GAMER | Acerca de nosotros</title>
+<link rel="stylesheet" href="estilo.css">
+</head>
+<body>
+<header class="topbar">
+  <a class="brand" href="principal.html">🎮 <span> SENA</span> <small> • ZONA GAMER</small></a>
+  <button class="menu-toggle" id="menuToggle">☰</button>
+  <nav class="main-nav" id="mainNav">
+    <a href="principal.html">🏠 Inicio</a>
+    <a href="principal.html#juegos">🎮 Juegos</a>
+    <a class="active" href="acerca.html">👥 Acerca de nosotros</a>
+    <a class="logout" href="index.html">🚪 Salir</a>
+  </nav>
+</header>
+
+<main class="about-main">
+  <section class="about-card">
+    <div class="about-icon">🎮</div>
+    <div class="eyebrow">SENA • ZONA GAMER</div>
+    <h1>Acerca de nosotros</h1>
+    <p class="lead">GameZone es una página de juegos creada como proyecto de aprendizaje en Programación de Software.</p>
+
+    <div class="about-grid">
+      <article>
+        <h2>🎯 Nuestro objetivo</h2>
+        <p>Crear un espacio sencillo y entretenido donde los usuarios puedan disfrutar diferentes juegos mientras se aplican conocimientos de desarrollo web.</p>
+      </article>
+      <article>
+        <h2>💻 ¿Qué utilizamos?</h2>
+        <p>La página integra tecnologías web como HTML, CSS y JavaScript para construir la interfaz, la navegación y la lógica de los juegos.</p>
+      </article>
+      <article>
+        <h2>🕹️ Nuestra colección</h2>
+        <p>Actualmente contamos con Trivia de Anime, Piedra, Papel o Tijera, Tres en Raya, Ahorcado y Juego de Memoria.</p>
+      </article>
+      <article>
+        <h2>🚀 Nuestra idea</h2>
+        <p>Seguir mejorando GameZone con nuevos juegos, mejores diseños, sonidos y funciones para que la experiencia sea cada vez más divertida.</p>
+      </article>
+    </div>
+    <section id="nosotros" class="about-section">
+    <div class="about-card">
+
+        <h3>🎮 Reglas de los juegos</h3>
+
+        <ul>
+            <li>🧠 <strong>Memoria:</strong> encuentra todas las parejas de cartas iguales.</li>
+
+            <li>❓ <strong>Trivia:</strong> selecciona un tema y responde correctamente
+            las preguntas antes de que termine el tiempo.</li>
+
+            <li>⭕ <strong>3 en Raya:</strong> consigue tres símbolos iguales
+            en línea antes que tu oponente.</li>
+
+            <li>✊ <strong>Piedra, Papel o Tijera:</strong> elige una opción
+            y compite contra el sistema.</li>
+
+            <li>🔤 <strong>Ahorcado:</strong> descubre la palabra antes de
+            quedarte sin oportunidades.</li>
+        </ul>
+
+    </div>
+
+
+    <div class="about-card">
+
+        <h3>👨‍💻 Integrantes y funciones</h3>
+
+        <div class="team-member">
+            <h4>Julmer Gómez</h4>
+            <p>Se encargó del diseño y la estructura de la página web.</p>
+        </div>
+
+        <div class="team-member">
+            <h4>Jaider Altafulla</h4>
+            <p>Se encargó de desarrollar y programar los juegos.</p>
+        </div>
+
+        <div class="team-member">
+            <h4>Alejandra Hernández</h4>
+            <p>Se encargó de los estilos, colores, fondos y diseño visual.</p>
+        </div>
+
+        <div class="team-member">
+            <h4>Ana Cabrera</h4>
+            <p>Se encargó de las pruebas, correcciones y funcionamiento
+            de la página.</p>
+        </div>
+
+    </div>
+
+</section>
+    <div class="team">
+      <h2>👥 Equipo</h2>
+      <p>Jaider Altafulla • Ana Cabrera • Alejandra Hernández • Julmer Gómez</p>
+    </div>
+
+    <a class="hero-button" href="principal.html">🏠 Volver al inicio</a>
+  </section>
+</main>
+
+<script>
+const toggle=document.getElementById('menuToggle');
+const nav=document.getElementById('mainNav');
+toggle.addEventListener('click',()=>nav.classList.toggle('show'));
+document.querySelectorAll('.main-nav a').forEach(a=>a.addEventListener('click',()=>nav.classList.remove('show')));
+</script>
+</body>
+</html>
