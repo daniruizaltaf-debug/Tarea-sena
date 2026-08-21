@@ -7,9 +7,9 @@ body{
   justify-content:center;
   padding:28px 16px;
   background:
-    radial-gradient(circle at 15% 15%, rgba(92, 2, 248, 0.76), transparent 28%),
-    radial-gradient(circle at 85% 80%, rgba(18, 3, 228, 0.25), transparent 30%),
-    linear-gradient(135deg,#070b18,#10162d 55%,#080b16);
+  radial-gradient(circle at 15% 15%, rgba(92, 2, 248, 0.76), transparent 28%),
+  radial-gradient(circle at 85% 80%, rgba(18, 3, 228, 0.25), transparent 30%),
+  linear-gradient(135deg,#070b18,#10162d 55%,#080b16);
 }
   
 .memory-app{width:100%;max-width:760px}
