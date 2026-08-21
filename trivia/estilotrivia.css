@@ -1,6 +1,9 @@
 *{box-sizing:border-box}
 body{margin:0;min-height:100vh;font-family:'Segoe UI',Arial,sans-serif;color:#eef2ff;
-background: Pink;
+background:
+radial-gradient(circle at 12% 15%,rgba(93, 0, 255, 0.32),transparent 28%),
+radial-gradient(circle at 88% 82%,rgba(243, 11, 139, 0.671),transparent 30%),
+linear-gradient(135deg,#040611,#0b1024 52%,#040611);
 display:flex;justify-content:center;padding:28px 16px}
 .home-btn{position:fixed;top:16px;left:16px;z-index:20;color:#67e8f9;text-decoration:none;
 background:rgba(9,14,32,.94);border:1px solid #394a82;padding:9px 14px;border-radius:10px;font-weight:800}
