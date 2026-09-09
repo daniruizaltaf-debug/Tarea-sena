@@ -30,20 +30,6 @@ body {
   background: linear-gradient(to right, #f73b89, #f0910b);
   transform: scale(1.1);
 }
-.opciones {
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-    flex-wrap: wrap;
-}
-
-.opciones button {
-    width: 120px;
-    height: 120px;
-    font-size: 40px;
-    border-radius: 20px;
-}
-
 
 .resultado {
   font-size: 1.2rem;
