@@ -418,7 +418,6 @@ footer p {
     grid-template-columns: 1fr;
   }
 }
-```
 
 
 .login-container {
@@ -430,6 +429,7 @@ footer p {
     align-items: center;
 
     padding: 20px;
+    box-sizing: border-box;
 }
 
 .login-box {
