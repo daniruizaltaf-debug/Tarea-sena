@@ -2,7 +2,7 @@
  
     *{box-sizing:border-box;margin:0;padding:0}
     body{
-     background:#FFB6C1;;color:#eee;font-family:'Segoe UI',sans-serif;
+     background:pink;;color:#eee;font-family:'Segoe UI',sans-serif;
       display:flex;justify-content:center;min-height:100vh;padding:1.5rem 1rem}
     #juego{text-align:center;max-width:580px;width:100%}
     h1{font-size:2rem;color:#000000;letter-spacing:2px;margin-bottom:.4rem}
