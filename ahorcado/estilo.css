@@ -2,10 +2,7 @@
  
     *{box-sizing:border-box;margin:0;padding:0}
     body{
-     background:
-      radial-gradient(circle at 15% 15%, rgba(92, 2, 248, 0.76), transparent 28%),
-      radial-gradient(circle at 85% 80%, rgba(18, 3, 228, 0.25), transparent 30%),
-      linear-gradient(135deg,#070b18,#10162d 55%,#080b16);color:#eee;font-family:'Segoe UI',sans-serif;
+     background:#FFB6C1;;color:#eee;font-family:'Segoe UI',sans-serif;
       display:flex;justify-content:center;min-height:100vh;padding:1.5rem 1rem}
     #juego{text-align:center;max-width:580px;width:100%}
     h1{font-size:2rem;color:#000000;letter-spacing:2px;margin-bottom:.4rem}
